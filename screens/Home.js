@@ -1,21 +1,21 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import MainContainer from '../components/container/Main';
+import StyledText from '../components/Texts/StyledText';
 
 export default function Home() {
-  
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <MainContainer>
+      <StyledText style={styles.sectionTitle} big>
+        Trending news
+      </StyledText>
+    </MainContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  sectionTitle: {
+    marginTop: 25,
+    marginLeft: 25,
   },
 });
