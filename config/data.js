@@ -5,7 +5,7 @@ export const newsData = [
     image: 'https://res.cloudinary.com/dqaerysgb/image/upload/v1650308633/img-3_osvtro.jpg',
     date: '2 days ago',
     author: 'James Bond',
-    avatar: require('../'),
+    avatar: 'https://res.cloudinary.com/dqaerysgb/image/upload/v1628020662/samples/imagecon-group.jpg',
     content: 'Lorem ipsum dolor sit amet ',
   },
   {
@@ -15,7 +15,7 @@ export const newsData = [
       'https://res.cloudinary.com/dqaerysgb/image/upload/v1647972916/can-tinder-make-you-hinder-dating-apps-can-take-a-toll-on-your-mental-health_blhzxx.jpg',
     date: '2 days ago',
     author: 'Lorem ipsum dolor sit amet',
-    avatar: require('../'),
+    avatar: 'https://res.cloudinary.com/dqaerysgb/image/upload/v1628020663/samples/cloudinary-group.jpg',
     content: 'Lorem ipsum dolor sit amet ',
   },
   {
@@ -24,7 +24,7 @@ export const newsData = [
     image: 'https://res.cloudinary.com/dqaerysgb/image/upload/v1635399087/Cuban-Food-1_mydd1f.jpg',
     date: '2 days ago',
     author: 'Lorem ipsum dolor sit amet',
-    avatar: require('../'),
+    avatar: 'https://res.cloudinary.com/dqaerysgb/image/upload/v1628020658/samples/bike.jpg',
     content: 'Lorem ipsum dolor sit amet ',
   },
   {
@@ -33,7 +33,7 @@ export const newsData = [
     image: 'https://res.cloudinary.com/dqaerysgb/image/upload/v1635399413/picWmxBlt_fx19jk.jpg',
     date: '2 days ago',
     author: 'Lorem ipsum dolor sit amet',
-    avatar: require('../'),
+    avatar: 'https://res.cloudinary.com/dqaerysgb/image/upload/v1628020656/samples/sheep.jpg',
     content: 'Lorem ipsum dolor sit amet ',
   },
   {
@@ -42,7 +42,7 @@ export const newsData = [
     image: 'https://res.cloudinary.com/dqaerysgb/image/upload/v1635360680/mexico_h9dcjv.jpg',
     date: '2 days ago',
     author: 'Lorem ipsum dolor sit amet',
-    avatar: require('../'),
+    avatar: 'https://res.cloudinary.com/dqaerysgb/image/upload/v1628020661/samples/ecommerce/car-interior-design.jpg',
     content: 'Lorem ipsum dolor sit amet ',
   },
   {
@@ -51,7 +51,7 @@ export const newsData = [
     image: 'https://res.cloudinary.com/dqaerysgb/image/upload/v1635360679/italian-food_jsa7c0.jpg',
     date: '2 days ago',
     author: 'Lorem ipsum dolor sit amet',
-    avatar: require('../'),
+    avatar: 'https://res.cloudinary.com/dqaerysgb/image/upload/v1628020662/samples/ecommerce/accessories-bag.jpg',
     content: 'Lorem ipsum dolor sit amet ',
   },
 ];
