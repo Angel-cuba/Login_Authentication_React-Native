@@ -3,7 +3,7 @@ import React from 'react';
 import { colors } from '../../config/theme';
 import StyledText from '../Texts/StyledText';
 
-const ExploreItem = ({ item, ...props }) => {
+const ExploreItem = ({ image, title, avatar, author, date, ...props }) => {
   let activeColors = colors;
   return (
     <TouchableOpacity
@@ -15,19 +15,19 @@ const ExploreItem = ({ item, ...props }) => {
       ]}
       {...props}
     >
-      <Image source={{ uri: item.image }} style={styles.image} />
+      <Image source={{ uri: image }} style={styles.image} />
       <View style={styles.bottomSection}>
         <StyledText numberOfLines={3} style={[{ color: activeColors.accent }, styles.title]} bold>
           {' '}
-          {item.title}
+          {title}
         </StyledText>
         <View style={styles.authorRow}>
           <View style={styles.author}>
-            <Image source={{ uri: item.avatar }} style={styles.avatar} />
-            <StyledText numberOfLines={2} bold>{item.author}</StyledText>
+            <Image source={{ uri: avatar }} style={styles.avatar} />
+            <StyledText numberOfLines={2} bold>{author}</StyledText>
           </View>
           <StyledText style={[{ color: activeColors.accent }, styles.date]} small>
-            {item.date}
+            {date}
           </StyledText>
         </View>
       </View>

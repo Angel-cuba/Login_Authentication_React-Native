@@ -4,6 +4,7 @@ import MainContainer from '../components/container/Main';
 import ExploreSection from '../components/Explore/ExploreSection';
 import NewsSection from '../components/News/News';
 import StyledText from '../components/Texts/StyledText';
+import { newsData } from '../config/data';
 
 export default function Home() {
   return (
@@ -11,11 +12,11 @@ export default function Home() {
       <StyledText style={styles.sectionTitle} big>
         Trending news
       </StyledText>
-      <NewsSection/>
+      <NewsSection data={newsData}/>
       <StyledText style={styles.sectionTitle} big>
         Explore
       </StyledText>
-      <ExploreSection/>
+      <ExploreSection data={newsData}/>
     </MainContainer>
   );
 }

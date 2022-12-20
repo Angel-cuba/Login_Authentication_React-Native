@@ -6,8 +6,8 @@ import ExploreItem from './ExploreItem';
 const ExploreSection = ({ data }) => {
   return (
     <FlatList
-      data={newsData}
-      renderItem={({ item }) => <ExploreItem item={item} />}
+      data={data}
+      renderItem={({ item }) => <ExploreItem {...item} />}
       keyExtractor={({ id }) => id.toString()}
       horizontal={true}
       showsHorizontalScrollIndicator={false}
