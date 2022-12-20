@@ -4,7 +4,7 @@ import MainContainer from '../components/container/Main';
 import ExploreSection from '../components/Explore/ExploreSection';
 import NewsSection from '../components/News/News';
 import StyledText from '../components/Texts/StyledText';
-import { newsData } from '../config/data';
+import { exploreData, newsData } from '../config/data';
 
 export default function Home() {
   return (
@@ -16,7 +16,7 @@ export default function Home() {
       <StyledText style={styles.sectionTitle} big>
         Explore
       </StyledText>
-      <ExploreSection data={newsData}/>
+      <ExploreSection data={exploreData}/>
     </MainContainer>
   );
 }
