@@ -2,7 +2,7 @@ import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, View } from 'rea
 import React from 'react';
 import { colors } from '../../config/theme';
 
-const MainContainer = ({ children, styles, ...props }) => {
+const MainContainer = ({ children, style, ...props }) => {
   let activeColors = colors;
 
   return (
@@ -10,9 +10,9 @@ const MainContainer = ({ children, styles, ...props }) => {
       <ScrollView
         style={[
           {
-            backgroundColor: activeColors.accent,
+            backgroundColor: activeColors.tertiary,
           },
-          styles,
+          style,
         ]}
         showsVerticalScrollIndicator={false}
         {...props}
