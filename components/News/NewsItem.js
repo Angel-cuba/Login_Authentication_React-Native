@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { colors } from '../../config/theme';
 import StyledText from '../Texts/StyledText';
@@ -17,14 +17,14 @@ const NewsItem = ({ item, ...props }) => {
     >
       <Image source={{ uri: item.image }} style={styles.image} />
       <View style={styles.bottomSection}>
-        <StyledText style={[{ color: activeColors.accent }, styles.title]} bold>
+        <StyledText numberOfLines={3} style={[{ color: activeColors.accent }, styles.title]} bold>
           {' '}
           {item.title}
         </StyledText>
         <View style={styles.authorRow}>
           <View style={styles.author}>
             <Image source={{ uri: item.avatar }} style={styles.avatar} />
-            <StyledText>{item.author}</StyledText>
+            <StyledText numberOfLines={2} bold>{item.author}</StyledText>
           </View>
           <StyledText style={[{ color: activeColors.accent }, styles.date]} small>
             {item.date}
@@ -71,7 +71,7 @@ export const styles = StyleSheet.create({
     width: 30,
     height: 30,
     borderRadius: 15,
-    marginRight: 10,
+    marginRight: 5,
   },
   date: {
     textAlign: 'right',
