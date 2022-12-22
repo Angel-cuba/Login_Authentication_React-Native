@@ -1,22 +1,23 @@
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import { colors } from '../../config/theme';
+import { colors, shadows } from '../../config/theme';
 import StyledText from '../Texts/StyledText';
 
 const NewsItem = ({ image, title, avatar, author, date, ...props }) => {
   let activeColors = colors;
+  let shadowsColors = shadows;
   return (
     <TouchableOpacity
       style={[
         {
-          backgroundColor: activeColors.white,
+          backgroundColor: shadowsColors.shadowLight,
         },
         styles.container,
       ]}
       {...props}
     >
       <Image source={{ uri: image }} style={styles.image} />
-      <View style={styles.bottomSection}>
+      <View style={[{backgroundColor: shadowsColors.shadowDark},styles.bottomSection]}>
         <StyledText numberOfLines={3} style={[{ color: activeColors.accent }, styles.title]} bold>
           {' '}
           {title}
@@ -40,10 +41,10 @@ export default NewsItem;
 
 export const styles = StyleSheet.create({
   container: {
-    height: 370,
+    height: 360,
     width: 270,
     borderRadius: 20,
-    marginRight: 20,
+    marginRight: 15,
   },
   image: {
     width: 270,
@@ -54,9 +55,10 @@ export const styles = StyleSheet.create({
     fontSize: 18,
   },
   bottomSection: {
-    padding: 25,
+    padding: 20,
     flex: 1,
     justifyContent: 'space-between',
+    borderRadius: 10,
   },
   authorRow: {
     flexDirection: 'row',
