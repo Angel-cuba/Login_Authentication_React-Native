@@ -41,9 +41,9 @@ export default function Settings() {
         </SettingsItem>
       </View>
 
-      {/* About section */}
+      {/*  Theme section */}
       <StyledText numberOfLines={3} style={[{ color: activeColors.accent }, styles.title]} bold>
-        User
+        Theme settings
       </StyledText>
       <View style={[styles.section]}>
           <SettingButton label="Light" icon="lightbulb-on" isEnabled={!isEnabled}/>
