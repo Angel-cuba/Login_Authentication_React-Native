@@ -1,5 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import MainContainer from '../components/container/Main';
 import ExploreSection from '../components/Explore/ExploreSection';
 import NewsSection from '../components/News/News';
@@ -12,11 +11,11 @@ export default function Home() {
       <StyledText style={styles.sectionTitle} big>
         Trending news
       </StyledText>
-      <NewsSection data={newsData}/>
+      <NewsSection data={newsData} />
       <StyledText style={styles.sectionTitle} big>
         Explore
       </StyledText>
-      <ExploreSection data={exploreData}/>
+      <ExploreSection data={exploreData} />
     </MainContainer>
   );
 }
