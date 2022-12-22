@@ -1,4 +1,4 @@
-import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { colors } from '../../config/theme';
 import StyledText from '../Texts/StyledText';
@@ -7,9 +7,8 @@ const ExploreItem = ({ image, title, avatar, author, date, ...props }) => {
   let activeColors = colors;
   return (
     <TouchableOpacity style={[styles.container]} {...props}>
-      <Image source={{ uri: image }} style={styles.image} />
+      <Image source={{ uri: image }} style={[styles.image, StyleSheet.absoluteFill]} />
       <StyledText style={[styles.title]} bold>
-        {' '}
         {title}
       </StyledText>
     </TouchableOpacity>
@@ -31,6 +30,23 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
+    color: colors.primary,
+    height: '100%',
+    width: '100%',
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    ...Platform.select({
+      ios: {
+        fontFamily: 'Avenir',
+        lineHeight: 120,
+      },
+      android: {
+        fontFamily: 'Roboto',
+        lineHeight: 120,
+      },
+    }),
+
+    backgroundColor: 'rgba(0,0,0,0.95)',
   },
   authorRow: {
     flexDirection: 'row',
