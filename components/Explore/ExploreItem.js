@@ -1,12 +1,13 @@
-import { Image, Platform, StyleSheet, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
-import { colors } from '../../config/theme';
+import { colors, shadows } from '../../config/theme';
 import StyledText from '../Texts/StyledText';
 
+let activeColors = colors;
+let shadowColors = shadows;
 const ExploreItem = ({ image, title, avatar, author, date, ...props }) => {
-  let activeColors = colors;
   return (
-    <TouchableOpacity style={[styles.container]} {...props}>
+    <TouchableOpacity onPress={() => alert(title)} style={[styles.container]} {...props}>
       <Image source={{ uri: image }} style={[styles.image, StyleSheet.absoluteFill]} />
       <StyledText style={[styles.title]} bold>
         {title}
@@ -38,15 +39,13 @@ export const styles = StyleSheet.create({
     ...Platform.select({
       ios: {
         fontFamily: 'Avenir',
-        lineHeight: 120,
+        lineHeight: '100%',
       },
-      android: {
-        fontFamily: 'Roboto',
-        lineHeight: 120,
-      },
+      android: {},
     }),
-
-    backgroundColor: 'rgba(0,0,0,0.95)',
+    borderRadius: 60,
+    borderWidth: 2,
+    borderColor: shadowColors.shadowAccent,
   },
   authorRow: {
     flexDirection: 'row',
