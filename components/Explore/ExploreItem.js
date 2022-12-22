@@ -6,31 +6,12 @@ import StyledText from '../Texts/StyledText';
 const ExploreItem = ({ image, title, avatar, author, date, ...props }) => {
   let activeColors = colors;
   return (
-    <TouchableOpacity
-      style={[
-        {
-          backgroundColor: activeColors.white,
-        },
-        styles.container,
-      ]}
-      {...props}
-    >
+    <TouchableOpacity style={[styles.container]} {...props}>
       <Image source={{ uri: image }} style={styles.image} />
-      <View style={styles.bottomSection}>
-        <StyledText numberOfLines={3} style={[{ color: activeColors.accent }, styles.title]} bold>
-          {' '}
-          {title}
-        </StyledText>
-        <View style={styles.authorRow}>
-          <View style={styles.author}>
-            <Image source={{ uri: avatar }} style={styles.avatar} />
-            <StyledText numberOfLines={2} bold>{author}</StyledText>
-          </View>
-          <StyledText style={[{ color: activeColors.accent }, styles.date]} small>
-            {date}
-          </StyledText>
-        </View>
-      </View>
+      <StyledText style={[styles.title]} bold>
+        {' '}
+        {title}
+      </StyledText>
     </TouchableOpacity>
   );
 };
@@ -38,23 +19,18 @@ export default ExploreItem;
 
 export const styles = StyleSheet.create({
   container: {
-    height: 370,
-    width: 270,
-    borderRadius: 20,
+    height: 120,
+    width: 120,
+    borderRadius: 60,
     marginRight: 20,
   },
   image: {
-    width: 270,
-    height: 190,
-    borderRadius: 25,
+    width: 120,
+    height: 120,
+    borderRadius: 60,
   },
   title: {
     fontSize: 18,
-  },
-  bottomSection: {
-    padding: 25,
-    flex: 1,
-    justifyContent: 'space-between',
   },
   authorRow: {
     flexDirection: 'row',
@@ -66,15 +42,5 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 25,
     flex: 3,
-  },
-  avatar: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    marginRight: 5,
-  },
-  date: {
-    textAlign: 'right',
-    flex: 2,
   },
 });

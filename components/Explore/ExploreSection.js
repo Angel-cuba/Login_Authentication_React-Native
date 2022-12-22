@@ -1,6 +1,5 @@
 import { FlatList } from 'react-native';
 import React from 'react';
-import { newsData } from '../../config/data';
 import ExploreItem from './ExploreItem';
 
 const ExploreSection = ({ data }) => {
