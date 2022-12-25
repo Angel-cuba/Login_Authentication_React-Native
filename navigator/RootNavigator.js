@@ -20,11 +20,11 @@ const RootNavigator = () => {
             let iconName;
 
             if (route.name === 'Trending') {
-              iconName = 'trending-up'
+              iconName = 'trending-up';
             } else if (route.name === 'Settings') {
-              iconName = 'cog'
+              iconName = 'cog';
             } else if (route.name === 'Details') {
-              iconName = 'information-variant'
+              iconName = 'information-variant';
             }
 
             // You can return any component that you like here!
@@ -32,6 +32,22 @@ const RootNavigator = () => {
           },
           tabBarActiveTintColor: activeColor.accent,
           tabBarInactiveTintColor: activeShadow.shadowBlack,
+          tabBarStyle: {
+            backgroundColor: activeShadow.shadowLight,
+            borderTopColor: activeShadow.shadowDark,
+            borderTopWidth: 1,
+          },
+          tabBarShowLabel: false,
+          headerTitleAlign: 'left',
+          headerTitleStyle: {
+            color: activeColor.accent,
+            fontSize: 20,
+            fontWeight: 'bold',
+            paddingLeft: 22,
+          },
+          headerStyle: {
+            backgroundColor: activeShadow.shadowLight,
+            },
         })}
       >
         <TabNavigator.Screen name="Trending" component={Home} />

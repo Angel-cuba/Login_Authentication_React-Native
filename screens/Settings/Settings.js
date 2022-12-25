@@ -62,7 +62,10 @@ export const styles = StyleSheet.create({
   section: {
     borderRadius: 30,
     overflow: 'hidden',
-    marginTop: 20,
-    marginBottom: 20,
-  }
+    marginTop: 5,
+    marginBottom: 40,
+  },
+  title: {
+    paddingLeft: 21,
+  },
 });
