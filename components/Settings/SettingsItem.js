@@ -1,10 +1,11 @@
 import { StyleSheet, View } from 'react-native';
 import React from 'react';
-import { colors, shadows } from '../../config/theme';
+import { colors, defaultTheme, shadows } from '../../config/theme';
 import StyledText from '../Texts/StyledText';
 
 const SettingsItem = ({ children, label }) => {
-  let activeColors = colors;
+  const themeApp = { mode: 'darkTheme' };
+  let activeColors = defaultTheme[themeApp.mode];
   let shadowColor = shadows;
 
   return (
@@ -16,7 +17,7 @@ const SettingsItem = ({ children, label }) => {
         styles.settingsItem,
       ]}
     >
-      <StyledText style={[{ color: shadowColor.shadowBlack }, styles.label]}>{label}</StyledText>
+      <StyledText style={[{ color: activeColors.black }, styles.label]}>{label}</StyledText>
       {children}
     </View>
   );

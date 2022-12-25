@@ -1,12 +1,12 @@
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet } from 'react-native';
 import React from 'react';
-import { colors } from '../../config/theme';
+import { defaultTheme } from '../../config/theme';
 
 const MainContainer = ({ children, style, ...props }) => {
-  let activeColors = colors;
-
+  const themeApp = { mode: 'darkTheme' };
+  let activeColors = defaultTheme[themeApp.mode];
   return (
-    <SafeAreaView style={styles}>
+    <SafeAreaView style={styles.container}>
       <ScrollView
         style={[
           {

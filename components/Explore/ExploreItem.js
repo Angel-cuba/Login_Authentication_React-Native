@@ -31,7 +31,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    color: colors.primary,
+    color: activeColors.primary,
     height: '100%',
     width: '100%',
     textAlign: 'center',
