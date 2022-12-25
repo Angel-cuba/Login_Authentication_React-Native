@@ -1,19 +1,22 @@
 import { StyleSheet, Image, View } from 'react-native';
 import MainContainer from '../../components/container/Main';
 import StyledText from '../../components/Texts/StyledText';
-import { colors } from '../../config/theme';
+import { defaultTheme } from '../../config/theme';
+import Separator from '../../Helpers/Separator';
 
-let activeColors = colors;
-export default function Details({ route}) {
+const themeApp = { mode: 'darkTheme' };
+let activeColors = defaultTheme[themeApp.mode];
+export default function Details({ route }) {
   const { image, title, avatar, author, date, content } = route?.params;
   return (
-    <MainContainer>
+    <MainContainer style={styles.container}>
       <Image source={{ uri: image }} style={styles.image} />
       <View style={[{ backgroundColor: activeColors.primary }, styles.bottomSection]}>
-        <StyledText numberOfLines={3} style={[{ color: activeColors.accent }, styles.title]} bold>
+        <StyledText numberOfLines={3} style={[{ color: activeColors.black }, styles.title]} bold>
           {' '}
           {title}
         </StyledText>
+        <Separator />
         <View style={styles.authorRow}>
           <View style={styles.author}>
             <Image source={{ uri: avatar }} style={styles.avatar} />
@@ -25,15 +28,17 @@ export default function Details({ route}) {
             {date}
           </StyledText>
         </View>
-        <StyledText style={ styles.content}>
-            {content}
-          </StyledText>
+        <Separator />
+        <StyledText style={styles.content}>{content}</StyledText>
       </View>
     </MainContainer>
   );
 }
 
 export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
   image: {
     width: '100%',
     height: 300,
@@ -73,5 +78,7 @@ export const styles = StyleSheet.create({
   },
   content: {
     marginTop: 20,
-  }
+    fontSize: 16,
+    height: '100%',
+  },
 });

@@ -1,15 +1,14 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import Home from '../screens/Home';
 import Settings from '../screens/Settings/Settings';
-import Details from '../screens/Details/Details';
-import { colors, shadows } from '../config/theme';
+import { defaultTheme, shadows } from '../config/theme';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import HomeNavigatorScreen from './HomeNavigator';
 
 const TabNavigator = createBottomTabNavigator();
-let activeColor = colors;
+const themeApp = { mode: 'darkTheme' };
+let activeColors = defaultTheme[themeApp.mode];
 let activeShadow = shadows;
 
 const RootNavigator = () => {
@@ -31,32 +30,44 @@ const RootNavigator = () => {
             // You can return any component that you like here!
             return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
           },
-          tabBarActiveTintColor: activeColor.accent,
-          tabBarInactiveTintColor: activeShadow.shadowBlack,
+          tabBarActiveTintColor: activeColors.accent,
+          tabBarInactiveTintColor: activeShadow.shadowAccent,
           tabBarStyle: {
-            backgroundColor: activeShadow.shadowLight,
+            backgroundColor: activeColors.secondary,
             borderTopColor: activeShadow.shadowDark,
             borderTopWidth: 1,
           },
           tabBarShowLabel: false,
           headerTitleAlign: 'left',
           headerTitleStyle: {
-            color: activeColor.accent,
+            color: activeColors.accent,
             fontSize: 20,
             fontWeight: 'bold',
             paddingLeft: 22,
           },
           headerStyle: {
             backgroundColor: activeShadow.shadowLight,
-            },
+          },
         })}
       >
-        <TabNavigator.Screen name="Trending" component={HomeNavigatorScreen} 
+        <TabNavigator.Screen
+          name="Trending"
+          component={HomeNavigatorScreen}
           options={{
             headerShown: false,
           }}
         />
-        <TabNavigator.Screen name="Settings" component={Settings} />
+        <TabNavigator.Screen name="Settings" component={Settings} options={{
+            headerTitleStyle: {
+              color: activeColors.black,
+              fontSize: 22,
+              fontWeight: 'bold',
+              paddingLeft: 22,
+            },
+            headerStyle: {
+              backgroundColor: activeColors.secondary,
+            },
+        }}/>
       </TabNavigator.Navigator>
     </NavigationContainer>
   );

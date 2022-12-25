@@ -23,6 +23,6 @@ export default function Home() {
 const styles = StyleSheet.create({
   sectionTitle: {
     marginTop: 25,
-    marginLeft: 25,
+    marginLeft: 35,
   },
 });

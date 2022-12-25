@@ -1,12 +1,13 @@
 import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import { colors, shadows } from '../../config/theme';
+import { defaultTheme, shadows } from '../../config/theme';
 import StyledText from '../Texts/StyledText';
 import { useNavigation } from '@react-navigation/native';
 
 const NewsItem = ({ image, title, avatar, author, date, content, ...props }) => {
-  let activeColors = colors;
   let shadowsColors = shadows;
+  const themeApp = { mode: 'darkTheme' };
+  let activeColors = defaultTheme[themeApp.mode];
 
   const navigation = useNavigation();
   return (

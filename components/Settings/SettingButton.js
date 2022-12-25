@@ -1,11 +1,12 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import { colors, shadows } from '../../config/theme';
+import { colors, defaultTheme, shadows } from '../../config/theme';
 import StyledText from '../Texts/StyledText';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const SettingButton = ({ label, icon, isEnabled, ...props }) => {
-  let activeColors = colors;
+  const themeApp = { mode: 'darkTheme' };
+let activeColors = defaultTheme[themeApp.mode];
   let shadowColor = shadows;
 
   return (
@@ -21,15 +22,15 @@ const SettingButton = ({ label, icon, isEnabled, ...props }) => {
         <MaterialCommunityIcons
           name={icon}
           size={24}
-          color={isEnabled ? activeColors.accent : activeColors.tertiary}
+          color={isEnabled ? activeColors.accent : activeColors.black}
           style={styles.icon}
         />
-        <StyledText style={[{ color: shadowColor.shadowBlack }, styles.label]}>{label}</StyledText>
+        <StyledText style={[{ color: activeColors.black }, styles.label]}>{label}</StyledText>
       </View>
       <MaterialCommunityIcons
         name={isEnabled ? 'checkbox-marked-circle' : 'checkbox-blank-circle-outline'}
         size={24}
-        color={isEnabled ? activeColors.accent : activeColors.tertiary}
+        color={isEnabled ? activeColors.accent : activeColors.black}
         style={styles.icon}
       />
     </TouchableOpacity>

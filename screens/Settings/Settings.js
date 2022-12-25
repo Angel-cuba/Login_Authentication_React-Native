@@ -4,17 +4,18 @@ import MainContainer from '../../components/container/Main';
 import SettingButton from '../../components/Settings/SettingButton';
 import SettingsItem from '../../components/Settings/SettingsItem';
 import StyledText from '../../components/Texts/StyledText';
-import { colors } from '../../config/theme';
+import { defaultTheme } from '../../config/theme';
 
-let activeColors = colors;
+const themeApp = { mode: 'darkTheme' };
+let activeColors = defaultTheme[themeApp.mode];
 export default function Settings() {
   const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
   return (
     <MainContainer style={styles.container}>
       {/* User section */}
-      <StyledText numberOfLines={3} style={[{ color: activeColors.accent }, styles.title]} bold>
+      <StyledText numberOfLines={3} style={[{ color: activeColors.black }, styles.title]} bold>
         User
       </StyledText>
       <View style={[styles.section]}>
@@ -27,29 +28,29 @@ export default function Settings() {
       </View>
 
       {/* Theme section */}
-      <StyledText numberOfLines={3} style={[{ color: activeColors.accent }, styles.title]} bold>
+      <StyledText numberOfLines={3} style={[{ color: activeColors.black }, styles.title]} bold>
         Theme switcher
       </StyledText>
       <View style={[styles.section]}>
-        <SettingsItem label={isEnabled ? "Dark mode" : "Light mode"}>
-          <Switch value={isEnabled}
-          onValueChange={toggleSwitch} 
-          thumbColor={isEnabled ? activeColors.accent : activeColors.tertiary}
-          ios_backgroundColor={activeColors.tertiary}
-          trackColor={{false: activeColors.tertiary, true: activeColors.secondary}}
+        <SettingsItem label={isEnabled ? 'Dark mode' : 'Light mode'}>
+          <Switch
+            value={isEnabled}
+            onValueChange={toggleSwitch}
+            thumbColor={isEnabled ? activeColors.accent : activeColors.shadowBlack}
+            ios_backgroundColor={activeColors.shadowBlack}
+            trackColor={{ false: activeColors.shadowBlack, true: activeColors.white }}
           />
         </SettingsItem>
       </View>
 
       {/*  Theme section */}
-      <StyledText numberOfLines={3} style={[{ color: activeColors.accent }, styles.title]} bold>
+      <StyledText numberOfLines={3} style={[{ color: activeColors.black }, styles.title]} bold>
         Theme settings
       </StyledText>
       <View style={[styles.section]}>
-          <SettingButton label="Light" icon="lightbulb-on" isEnabled={!isEnabled}/>
-          <SettingButton label="Dark" icon="weather-night" isEnabled={isEnabled}/>
-          <SettingButton label="System" icon="theme-light-dark" isEnabled={isEnabled}/>
-
+        <SettingButton label="Light" icon="lightbulb-on" isEnabled={!isEnabled} />
+        <SettingButton label="Dark" icon="weather-night" isEnabled={isEnabled} />
+        <SettingButton label="System" icon="theme-light-dark" isEnabled={isEnabled} />
       </View>
     </MainContainer>
   );
@@ -67,5 +68,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     paddingLeft: 21,
+    fontWeight: 'bold',
+    fontSize: 18,
   },
 });
