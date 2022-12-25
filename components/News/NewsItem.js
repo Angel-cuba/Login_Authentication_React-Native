@@ -2,12 +2,25 @@ import { Image, StyleSheet, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import { colors, shadows } from '../../config/theme';
 import StyledText from '../Texts/StyledText';
+import { useNavigation } from '@react-navigation/native';
 
-const NewsItem = ({ image, title, avatar, author, date, ...props }) => {
+const NewsItem = ({ image, title, avatar, author, date, content, ...props }) => {
   let activeColors = colors;
   let shadowsColors = shadows;
+
+  const navigation = useNavigation();
   return (
     <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('Details', {
+          image,
+          title,
+          avatar,
+          author,
+          date,
+          content,
+        });
+      }}
       style={[
         {
           backgroundColor: shadowsColors.shadowLight,
@@ -17,7 +30,7 @@ const NewsItem = ({ image, title, avatar, author, date, ...props }) => {
       {...props}
     >
       <Image source={{ uri: image }} style={styles.image} />
-      <View style={[{backgroundColor: shadowsColors.shadowDark},styles.bottomSection]}>
+      <View style={[{ backgroundColor: shadowsColors.shadowDark }, styles.bottomSection]}>
         <StyledText numberOfLines={3} style={[{ color: activeColors.accent }, styles.title]} bold>
           {' '}
           {title}

@@ -1,32 +1,32 @@
 import { StyleSheet, Image, View } from 'react-native';
 import MainContainer from '../../components/container/Main';
 import StyledText from '../../components/Texts/StyledText';
-import { newsData } from '../../config/data';
 import { colors } from '../../config/theme';
 
 let activeColors = colors;
-export default function Details() {
+export default function Details({ route}) {
+  const { image, title, avatar, author, date, content } = route?.params;
   return (
     <MainContainer>
-      <Image source={{ uri: newsData[0].image }} style={styles.image} />
+      <Image source={{ uri: image }} style={styles.image} />
       <View style={[{ backgroundColor: activeColors.primary }, styles.bottomSection]}>
         <StyledText numberOfLines={3} style={[{ color: activeColors.accent }, styles.title]} bold>
           {' '}
-          {newsData[0].title}
+          {title}
         </StyledText>
         <View style={styles.authorRow}>
           <View style={styles.author}>
-            <Image source={{ uri: newsData[0].avatar }} style={styles.avatar} />
+            <Image source={{ uri: avatar }} style={styles.avatar} />
             <StyledText numberOfLines={2} bold>
-              {newsData[0].author}
+              {author}
             </StyledText>
           </View>
           <StyledText style={[{ color: activeColors.accent }, styles.date]} small>
-            {newsData[0].date}
+            {date}
           </StyledText>
         </View>
         <StyledText style={ styles.content}>
-            {newsData[0].content}
+            {content}
           </StyledText>
       </View>
     </MainContainer>
