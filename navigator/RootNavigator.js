@@ -6,6 +6,7 @@ import Settings from '../screens/Settings/Settings';
 import Details from '../screens/Details/Details';
 import { colors, shadows } from '../config/theme';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import HomeNavigatorScreen from './HomeNavigator';
 
 const TabNavigator = createBottomTabNavigator();
 let activeColor = colors;
@@ -50,8 +51,11 @@ const RootNavigator = () => {
             },
         })}
       >
-        <TabNavigator.Screen name="Trending" component={Home} />
-        <TabNavigator.Screen name="Details" component={Details} />
+        <TabNavigator.Screen name="Trending" component={HomeNavigatorScreen} 
+          options={{
+            headerShown: false,
+          }}
+        />
         <TabNavigator.Screen name="Settings" component={Settings} />
       </TabNavigator.Navigator>
     </NavigationContainer>
