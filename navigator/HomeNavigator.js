@@ -6,11 +6,11 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 // Screens
 import Home from '../screens/Home';
 import Details from '../screens/Details/Details';
-import { defaultTheme, shadows } from '../config/theme';
+import { defaultTheme } from '../config/theme';
 import { View } from 'react-native';
 
 const HomeStackNavigator = createStackNavigator();
-const themeApp = { mode: 'darkTheme' };
+const themeApp = { mode: 'dark' };
 let activeColors = defaultTheme[themeApp.mode];
 
 const HomeNavigatorScreen = () => {

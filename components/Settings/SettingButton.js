@@ -5,7 +5,7 @@ import StyledText from '../Texts/StyledText';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const SettingButton = ({ label, icon, isEnabled, ...props }) => {
-  const themeApp = { mode: 'darkTheme' };
+  const themeApp = { mode: 'dark' };
 let activeColors = defaultTheme[themeApp.mode];
   let shadowColor = shadows;
 

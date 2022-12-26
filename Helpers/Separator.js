@@ -2,7 +2,7 @@ import { View, StyleSheet } from 'react-native'
 import React from 'react'
 import { defaultTheme } from '../config/theme';
 
-const themeApp = { mode: 'darkTheme' };
+const themeApp = { mode: 'dark' };
 let activeColors = defaultTheme[themeApp.mode];
 
 export default function Separator() {

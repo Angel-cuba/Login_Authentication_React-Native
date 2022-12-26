@@ -3,7 +3,7 @@ import React from 'react';
 import { defaultTheme } from '../../config/theme';
 
 const StyledText = ({ children, style, small, big, bold, ...props }) => {
-  const themeApp = { mode: 'darkTheme' };
+  const themeApp = { mode: 'dark' };
   let activeColors = defaultTheme[themeApp.mode];
 
   return (

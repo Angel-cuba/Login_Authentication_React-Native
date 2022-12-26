@@ -3,7 +3,7 @@ import React from 'react';
 import { defaultTheme } from '../../config/theme';
 
 const MainContainer = ({ children, style, ...props }) => {
-  const themeApp = { mode: 'darkTheme' };
+  const themeApp = { mode: 'dark' };
   let activeColors = defaultTheme[themeApp.mode];
   return (
     <SafeAreaView style={styles.container}>
@@ -18,7 +18,7 @@ const MainContainer = ({ children, style, ...props }) => {
         {...props}
       >
         {children}
-        <StatusBar style="auto" />
+        <StatusBar style={themeApp.mode === 'dark' ? 'light' : 'dark'} />
       </ScrollView>
     </SafeAreaView>
   );

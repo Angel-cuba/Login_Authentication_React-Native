@@ -4,7 +4,7 @@ import { colors, defaultTheme, shadows } from '../../config/theme';
 import StyledText from '../Texts/StyledText';
 
 const SettingsItem = ({ children, label }) => {
-  const themeApp = { mode: 'darkTheme' };
+  const themeApp = { mode: 'dark' };
   let activeColors = defaultTheme[themeApp.mode];
   let shadowColor = shadows;
 

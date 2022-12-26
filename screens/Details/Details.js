@@ -4,7 +4,7 @@ import StyledText from '../../components/Texts/StyledText';
 import { defaultTheme } from '../../config/theme';
 import Separator from '../../Helpers/Separator';
 
-const themeApp = { mode: 'darkTheme' };
+const themeApp = { mode: 'dark' };
 let activeColors = defaultTheme[themeApp.mode];
 export default function Details({ route }) {
   const { image, title, avatar, author, date, content } = route?.params;

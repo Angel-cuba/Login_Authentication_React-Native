@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 
 const NewsItem = ({ image, title, avatar, author, date, content, ...props }) => {
   let shadowsColors = shadows;
-  const themeApp = { mode: 'darkTheme' };
+  const themeApp = { mode: 'dark' };
   let activeColors = defaultTheme[themeApp.mode];
 
   const navigation = useNavigation();

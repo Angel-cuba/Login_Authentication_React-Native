@@ -7,7 +7,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import HomeNavigatorScreen from './HomeNavigator';
 
 const TabNavigator = createBottomTabNavigator();
-const themeApp = { mode: 'darkTheme' };
+const themeApp = { mode: 'dark' };
 let activeColors = defaultTheme[themeApp.mode];
 let activeShadow = shadows;
 

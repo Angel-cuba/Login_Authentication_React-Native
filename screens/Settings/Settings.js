@@ -6,7 +6,7 @@ import SettingsItem from '../../components/Settings/SettingsItem';
 import StyledText from '../../components/Texts/StyledText';
 import { defaultTheme } from '../../config/theme';
 
-const themeApp = { mode: 'darkTheme' };
+const themeApp = { mode: 'dark' };
 let activeColors = defaultTheme[themeApp.mode];
 export default function Settings() {
   const [isEnabled, setIsEnabled] = useState(false);

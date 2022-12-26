@@ -16,7 +16,7 @@ export const shadows = {
 };
 
 export const defaultTheme = {
-  lightTheme: {
+  light: {
     white: '#F3FBFFD4',
     black: '#000000',
     shadowBlack: '#3636364E',
@@ -26,7 +26,7 @@ export const defaultTheme = {
     tint: '#5E2C2C',
     accent: '#B93800',
   },
-  darkTheme: {
+  dark: {
     white: '#1A1B1CD4',
     black: '#F0E9E9',
     shadowBlack: '#F0E9E927',
