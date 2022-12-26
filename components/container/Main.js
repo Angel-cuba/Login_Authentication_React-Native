@@ -18,7 +18,10 @@ const MainContainer = ({ children, style, ...props }) => {
         {...props}
       >
         {children}
-        <StatusBar style={themeApp.mode === 'dark' ? 'light' : 'dark'} />
+        <StatusBar
+          barStyle={themeApp.mode === 'dark' ? 'light-content' : 'dark-content'}
+          animated={true}
+        />
       </ScrollView>
     </SafeAreaView>
   );
