@@ -32,7 +32,7 @@ const NewsItem = ({ image, title, avatar, author, date, content, ...props }) => 
     >
       <Image source={{ uri: image }} style={styles.image} />
       <View style={[{ backgroundColor: shadowsColors.shadowDark }, styles.bottomSection]}>
-        <StyledText numberOfLines={3} style={[{ color: activeColors.accent }, styles.title]} bold>
+        <StyledText numberOfLines={3} style={[{ color: activeColors.black }, styles.title]} bold>
           {' '}
           {title}
         </StyledText>

@@ -59,6 +59,7 @@ export default function Settings() {
 export const styles = StyleSheet.create({
   container: {
     padding: 20,
+    backgroundColor: activeColors.white,
   },
   section: {
     borderRadius: 30,
