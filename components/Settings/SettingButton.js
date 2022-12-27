@@ -1,13 +1,13 @@
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import React from 'react';
-import { colors, defaultTheme, shadows } from '../../config/theme';
+import React, { useContext } from 'react';
+import { defaultTheme, shadows } from '../../config/theme';
 import StyledText from '../Texts/StyledText';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const SettingButton = ({ label, icon, isEnabled, ...props }) => {
-  const themeApp = { mode: 'dark' };
-let activeColors = defaultTheme[themeApp.mode];
-  let shadowColor = shadows;
+  const { themeApp } = useContext(ThemeContext);
+  let activeColors = defaultTheme[themeApp.mode];
 
   return (
     <TouchableOpacity
@@ -17,6 +17,7 @@ let activeColors = defaultTheme[themeApp.mode];
         },
         styles.settingsItem,
       ]}
+      {...props}
     >
       <View style={styles.labelGroup}>
         <MaterialCommunityIcons

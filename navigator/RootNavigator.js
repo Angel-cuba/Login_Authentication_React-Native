@@ -6,12 +6,16 @@ import { defaultTheme, shadows } from '../config/theme';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import HomeNavigatorScreen from './HomeNavigator';
 
+// Context
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
+
 const TabNavigator = createBottomTabNavigator();
-const themeApp = { mode: 'dark' };
-let activeColors = defaultTheme[themeApp.mode];
-let activeShadow = shadows;
 
 const RootNavigator = () => {
+  const { themeApp } = useContext(ThemeContext);
+  let activeColors = defaultTheme[themeApp.mode];
+  let activeShadow = shadows;
   return (
     <NavigationContainer>
       <TabNavigator.Navigator
@@ -57,7 +61,10 @@ const RootNavigator = () => {
             headerShown: false,
           }}
         />
-        <TabNavigator.Screen name="Settings" component={Settings} options={{
+        <TabNavigator.Screen
+          name="Settings"
+          component={Settings}
+          options={{
             headerTitleStyle: {
               color: activeColors.black,
               fontSize: 22,
@@ -67,7 +74,8 @@ const RootNavigator = () => {
             headerStyle: {
               backgroundColor: activeColors.secondary,
             },
-        }}/>
+          }}
+        />
       </TabNavigator.Navigator>
     </NavigationContainer>
   );

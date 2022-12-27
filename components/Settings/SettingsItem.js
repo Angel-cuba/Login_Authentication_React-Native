@@ -1,12 +1,12 @@
 import { StyleSheet, View } from 'react-native';
-import React from 'react';
-import { colors, defaultTheme, shadows } from '../../config/theme';
+import React, { useContext } from 'react';
+import { defaultTheme } from '../../config/theme';
 import StyledText from '../Texts/StyledText';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const SettingsItem = ({ children, label }) => {
-  const themeApp = { mode: 'dark' };
+  const { themeApp } = useContext(ThemeContext);
   let activeColors = defaultTheme[themeApp.mode];
-  let shadowColor = shadows;
 
   return (
     <View

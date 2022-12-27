@@ -5,15 +5,26 @@ import SettingButton from '../../components/Settings/SettingButton';
 import SettingsItem from '../../components/Settings/SettingsItem';
 import StyledText from '../../components/Texts/StyledText';
 import { defaultTheme } from '../../config/theme';
+// Context
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
 
-const themeApp = { mode: 'dark' };
-let activeColors = defaultTheme[themeApp.mode];
 export default function Settings() {
+  const { themeApp } = useContext(ThemeContext);
+  let activeColors = defaultTheme[themeApp.mode];
+
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
 
   return (
-    <MainContainer style={styles.container}>
+    <MainContainer
+      style={[
+        styles.container,
+        {
+          backgroundColor: activeColors.white,
+        },
+      ]}
+    >
       {/* User section */}
       <StyledText numberOfLines={3} style={[{ color: activeColors.black }, styles.title]} bold>
         User
@@ -59,7 +70,6 @@ export default function Settings() {
 export const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: activeColors.white,
   },
   section: {
     borderRadius: 30,

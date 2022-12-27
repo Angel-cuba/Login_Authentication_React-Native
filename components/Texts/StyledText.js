@@ -1,9 +1,13 @@
 import { Text } from 'react-native';
 import React from 'react';
 import { defaultTheme } from '../../config/theme';
+// Context
+import { useContext } from 'react';
+import { ThemeContext } from '../../context/ThemeContext';
+
 
 const StyledText = ({ children, style, small, big, bold, ...props }) => {
-  const themeApp = { mode: 'dark' };
+  const { themeApp } = useContext(ThemeContext);
   let activeColors = defaultTheme[themeApp.mode];
 
   return (

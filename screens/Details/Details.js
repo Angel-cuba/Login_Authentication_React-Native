@@ -1,12 +1,15 @@
+import { useContext } from 'react';
 import { StyleSheet, Image, View } from 'react-native';
 import MainContainer from '../../components/container/Main';
 import StyledText from '../../components/Texts/StyledText';
 import { defaultTheme } from '../../config/theme';
+import { ThemeContext } from '../../context/ThemeContext';
 import Separator from '../../Helpers/Separator';
 
-const themeApp = { mode: 'dark' };
-let activeColors = defaultTheme[themeApp.mode];
 export default function Details({ route }) {
+  const { themeApp } = useContext(ThemeContext);
+  let activeColors = defaultTheme[themeApp.mode];
+
   const { image, title, avatar, author, date, content } = route?.params;
   return (
     <MainContainer style={styles.container}>

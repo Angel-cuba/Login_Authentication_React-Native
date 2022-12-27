@@ -2,18 +2,20 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-
 // Screens
 import Home from '../screens/Home';
 import Details from '../screens/Details/Details';
 import { defaultTheme } from '../config/theme';
 import { View } from 'react-native';
+// Context
+import { useContext } from 'react';
+import { ThemeContext } from '../context/ThemeContext';
 
 const HomeStackNavigator = createStackNavigator();
-const themeApp = { mode: 'dark' };
-let activeColors = defaultTheme[themeApp.mode];
 
 const HomeNavigatorScreen = () => {
+  const { themeApp } = useContext(ThemeContext);
+  let activeColors = defaultTheme[themeApp.mode];
   return (
     <HomeStackNavigator.Navigator
       screenOptions={{
@@ -30,15 +32,22 @@ const HomeNavigatorScreen = () => {
       }}
     >
       <HomeStackNavigator.Screen name="Home" component={Home} />
-      <HomeStackNavigator.Screen name="Details" component={Details} options={{
-        headerBackTitleVisible: false,
-        headerBackImage: () => (
-          <View style={{ paddingLeft: 20 }}>
-            <MaterialCommunityIcons name="keyboard-backspace" size={24} color={activeColors.black} />
-          </View>
-        ),
-
-      }}/>
+      <HomeStackNavigator.Screen
+        name="Details"
+        component={Details}
+        options={{
+          headerBackTitleVisible: false,
+          headerBackImage: () => (
+            <View style={{ paddingLeft: 20 }}>
+              <MaterialCommunityIcons
+                name="keyboard-backspace"
+                size={24}
+                color={activeColors.black}
+              />
+            </View>
+          ),
+        }}
+      />
     </HomeStackNavigator.Navigator>
   );
 };
