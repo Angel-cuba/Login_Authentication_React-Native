@@ -10,11 +10,14 @@ import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
 
 export default function Settings() {
-  const { themeApp } = useContext(ThemeContext);
+  const { themeApp, updateTheme } = useContext(ThemeContext);
   let activeColors = defaultTheme[themeApp.mode];
 
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  const [isEnabled, setIsEnabled] = useState(themeApp.mode === 'dark');
+  const toggleSwitch = () => {
+    setIsEnabled((previousState) => !previousState);
+    updateTheme();
+  };
 
   return (
     <MainContainer
