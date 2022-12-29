@@ -11,7 +11,7 @@ const MainContainer = ({ children, style, ...props }) => {
   let activeColors = defaultTheme[themeApp.mode];
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: activeColors.black}]}>
+    <SafeAreaView style={[styles.container, { backgroundColor: activeColors.white}]}>
       <ScrollView
         style={[
           {

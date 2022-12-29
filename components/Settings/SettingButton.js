@@ -13,7 +13,7 @@ const SettingButton = ({ label, icon, isEnabled, ...props }) => {
     <TouchableOpacity
       style={[
         {
-          backgroundColor: activeColors.secondary,
+          backgroundColor: activeColors.primary,
         },
         styles.settingsItem,
       ]}

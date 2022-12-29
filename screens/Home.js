@@ -1,3 +1,4 @@
+import { useContext } from 'react';
 import { StyleSheet } from 'react-native';
 import MainContainer from '../components/container/Main';
 import ExploreSection from '../components/Explore/ExploreSection';
@@ -5,13 +6,13 @@ import NewsSection from '../components/News/News';
 import StyledText from '../components/Texts/StyledText';
 import { exploreData, newsData } from '../config/data';
 import { defaultTheme } from '../config/theme';
+import { ThemeContext } from '../context/ThemeContext';
 
-
-const themeApp = { mode: 'dark' };
-let activeColors = defaultTheme[themeApp.mode];
 export default function Home() {
+  const { themeApp } = useContext(ThemeContext);
+  let activeColors = defaultTheme[themeApp.mode];
   return (
-    <MainContainer style={styles.container}>
+    <MainContainer style={{backgroundColor: activeColors.white}}>
       <StyledText style={styles.sectionTitle} big>
         Trending news
       </StyledText>
@@ -25,9 +26,6 @@ export default function Home() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: activeColors.white
-  },
   sectionTitle: {
     marginTop: 25,
     marginLeft: 35,
