@@ -17,11 +17,11 @@ export const shadows = {
 
 export const defaultTheme = {
   light: {
-    white: '#F3FBFFD4',
+    white: '#E8E8E8D4',
     black: '#000000',
     shadowBlack: '#3636364E',
     primary: '#6C6C6C84',
-    secondary: '#BC9C9C80',
+    secondary: '#C4C4C4',
     tertiary: '#FDFDFD78',
     tint: '#5E2C2C',
     accent: '#B93800',

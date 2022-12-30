@@ -35,7 +35,7 @@ const RootNavigator = () => {
             return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: activeColors.accent,
-          tabBarInactiveTintColor: activeShadow.shadowAccent,
+          tabBarInactiveTintColor: activeShadow.shadowBlack,
           tabBarStyle: {
             backgroundColor: activeColors.secondary,
             borderTopColor: activeShadow.shadowDark,
