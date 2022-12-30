@@ -13,7 +13,7 @@ export default function Settings() {
   const { themeApp, updateTheme } = useContext(ThemeContext);
   let activeColors = defaultTheme[themeApp.mode];
 
-  const [isEnabled, setIsEnabled] = useState(themeApp.mode === 'dark');
+  const [isEnabled, setIsEnabled] = useState(themeApp.mode);
   const toggleSwitch = () => {
     setIsEnabled((previousState) => !previousState);
     updateTheme();
@@ -62,8 +62,8 @@ export default function Settings() {
         Theme settings
       </StyledText>
       <View style={[styles.section]}>
-        <SettingButton label="Light" icon="lightbulb-on" isEnabled={!isEnabled} />
-        <SettingButton label="Dark" icon="weather-night" isEnabled={isEnabled} />
+        <SettingButton label="Light" icon="lightbulb-on" isEnabled={!isEnabled} onPress={toggleSwitch}/>
+        <SettingButton label="Dark" icon="weather-night" isEnabled={isEnabled} onPress={toggleSwitch}/>
         <SettingButton label="System" icon="theme-light-dark" isEnabled={isEnabled} />
       </View>
     </MainContainer>
