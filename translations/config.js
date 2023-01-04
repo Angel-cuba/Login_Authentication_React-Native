@@ -1,7 +1,7 @@
 import * as Localization from 'expo-localization';
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import { AsyncStorageStatic } from 'react-native';
+import { AsyncStorage } from '@react-native-async-storage/async-storage';
 import * as RNLocalize from 'expo-localization';
 
 //Importing the translations
@@ -24,7 +24,7 @@ const LANGUAGE_DETECTOR = {
   type: 'languageDetector',
   async: true,
   detect: (callback) => {
-    AsyncStorageStatic?.getItem('user-language', (err, language) => {
+    AsyncStorage?.getItem('user-language', (err, language) => {
       // if error fetching stored data or no language was stored
       // display errors when in DEV mode as console statements
       if (err || !language) {
@@ -43,7 +43,7 @@ const LANGUAGE_DETECTOR = {
   },
   init: () => {},
   cacheUserLanguage: (language) => {
-    AsyncStorageStatic?.setItem('user-language', language);
+    AsyncStorage?.setItem('user-language', language);
   },
 };
 
