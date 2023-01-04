@@ -7,18 +7,22 @@ import StyledText from '../components/Texts/StyledText';
 import { exploreData, newsData } from '../config/data';
 import { defaultTheme } from '../config/theme';
 import { ThemeContext } from '../context/ThemeContext';
+//Translation
+import { useTranslation } from 'react-i18next';
 
 export default function Home() {
   const { themeApp } = useContext(ThemeContext);
   let activeColors = defaultTheme[themeApp.mode];
+
+  const { t } = useTranslation();
   return (
     <MainContainer style={{backgroundColor: activeColors.white}}>
       <StyledText style={styles.sectionTitle} big>
-        Trending news
+        {t('common:home:trendingBlock')}
       </StyledText>
       <NewsSection data={newsData} />
       <StyledText style={styles.sectionTitle} big>
-        Explore
+        {t('common:home:exploreBlock')}
       </StyledText>
       <ExploreSection data={exploreData} />
     </MainContainer>

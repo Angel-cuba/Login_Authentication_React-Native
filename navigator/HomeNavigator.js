@@ -38,7 +38,7 @@ const HomeNavigatorScreen = () => {
         
       <HomeStackNavigator.Screen name={t('common:screenHeader')} component={Home} />
       <HomeStackNavigator.Screen
-        name={t('common:screenDetails')}
+        name= {t('common:screenDetails')}
         component={Details}
         options={{
           headerBackTitleVisible: false,

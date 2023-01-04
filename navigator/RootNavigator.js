@@ -12,7 +12,6 @@ import { ThemeContext } from '../context/ThemeContext';
 // Translation
 import { useTranslation } from 'react-i18next';
 
-
 const TabNavigator = createBottomTabNavigator();
 
 const RootNavigator = () => {
@@ -30,9 +29,13 @@ const RootNavigator = () => {
 
             if (route.name === 'Trending') {
               iconName = 'trending-up';
-            } else if (route.name === 'Settings') {
+            } else if (
+              route.name === t('common:screenSettings') 
+            ) {
               iconName = 'cog';
-            } else if (route.name === 'Details') {
+            } else if (
+              route.name === t('common:screenDetails')
+            ) {
               iconName = 'information-variant';
             }
 
