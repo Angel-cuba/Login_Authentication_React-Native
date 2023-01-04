@@ -8,10 +8,15 @@ import { defaultTheme } from '../../config/theme';
 // Context
 import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
+import Selector from '../../components/language/languageSelector';
+
+import { useTranslation } from 'react-i18next';
 
 export default function Settings() {
   const { themeApp, updateTheme } = useContext(ThemeContext);
   let activeColors = defaultTheme[themeApp.mode];
+
+  const { t } = useTranslation();
 
   const [isEnabled, setIsEnabled] = useState(themeApp.mode);
   const toggleSwitch = () => {
@@ -62,9 +67,32 @@ export default function Settings() {
         Theme settings
       </StyledText>
       <View style={[styles.section]}>
-        <SettingButton label="Light" icon="lightbulb-on" isEnabled={!isEnabled} onPress={toggleSwitch}/>
-        <SettingButton label="Dark" icon="weather-night" isEnabled={isEnabled} onPress={toggleSwitch}/>
-        <SettingButton label="System" icon="theme-light-dark" isEnabled={isEnabled} />
+        <SettingButton
+          label="Light"
+          icon="lightbulb-on"
+          isEnabled={!isEnabled && !themeApp.system}
+          onPress={toggleSwitch}
+        />
+        <SettingButton
+          label="Dark"
+          icon="weather-night"
+          isEnabled={isEnabled && !themeApp.system}
+          onPress={toggleSwitch}
+        />
+        <SettingButton
+          label="System"
+          icon="theme-light-dark"
+          isEnabled={themeApp.system}
+          onPress={() => updateTheme({ system: true })}
+        />
+      </View>
+      {/*  Language section */}
+      <StyledText numberOfLines={3} style={[{ color: activeColors.black }, styles.title]} bold>
+        Language
+      </StyledText>
+      <View style={[styles.section]}>
+        <SettingButton label="Language" icon="translate" />
+        <Selector />
       </View>
     </MainContainer>
   );

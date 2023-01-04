@@ -10,12 +10,16 @@ import { View } from 'react-native';
 // Context
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
+import { useTranslation } from 'react-i18next';
+
 
 const HomeStackNavigator = createStackNavigator();
 
 const HomeNavigatorScreen = () => {
   const { themeApp } = useContext(ThemeContext);
   let activeColors = defaultTheme[themeApp.mode];
+
+  const { t } = useTranslation();
   return (
     <HomeStackNavigator.Navigator
       screenOptions={{
@@ -31,9 +35,10 @@ const HomeNavigatorScreen = () => {
         headerTitleAlign: 'left',
       }}
     >
-      <HomeStackNavigator.Screen name="Home" component={Home} />
+        
+      <HomeStackNavigator.Screen name={t('common:screenHeader')} component={Home} />
       <HomeStackNavigator.Screen
-        name="Details"
+        name={t('common:screenDetails')}
         component={Details}
         options={{
           headerBackTitleVisible: false,

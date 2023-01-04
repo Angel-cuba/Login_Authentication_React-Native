@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Appearance } from 'react-native';
+import { Appearance, AsyncStorageStatic } from 'react-native';
 import { getData, storeData } from './config/asyncStorage';
 import { ThemeContext } from './context/ThemeContext';
 import RootNavigator from './navigator/RootNavigator';
 import * as SplashScreen from 'expo-splash-screen';
+
+//Importin language config
+import './translations/config';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -50,7 +53,10 @@ export default function App() {
   };
   useEffect(() => {
     fetchStoredTheme();
+    AsyncStorageStatic?.setItem('user-language', language);
+
   }, []);
+
 
   return (
     <ThemeContext.Provider

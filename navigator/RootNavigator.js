@@ -9,6 +9,9 @@ import HomeNavigatorScreen from './HomeNavigator';
 // Context
 import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
+// Translation
+import { useTranslation } from 'react-i18next';
+
 
 const TabNavigator = createBottomTabNavigator();
 
@@ -16,6 +19,8 @@ const RootNavigator = () => {
   const { themeApp } = useContext(ThemeContext);
   let activeColors = defaultTheme[themeApp.mode];
   let activeShadow = shadows;
+
+  const { t } = useTranslation();
   return (
     <NavigationContainer>
       <TabNavigator.Navigator
@@ -62,7 +67,7 @@ const RootNavigator = () => {
           }}
         />
         <TabNavigator.Screen
-          name="Settings"
+          name={t('common:screenSettings')}
           component={Settings}
           options={{
             headerTitleStyle: {
