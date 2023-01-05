@@ -12,7 +12,6 @@ import { useContext } from 'react';
 import { ThemeContext } from '../context/ThemeContext';
 import { useTranslation } from 'react-i18next';
 
-
 const HomeStackNavigator = createStackNavigator();
 
 const HomeNavigatorScreen = () => {
@@ -22,6 +21,7 @@ const HomeNavigatorScreen = () => {
   const { t } = useTranslation();
   return (
     <HomeStackNavigator.Navigator
+      initialRouteName="Home"
       screenOptions={{
         headerTitleStyle: {
           color: activeColors.black,
@@ -33,12 +33,12 @@ const HomeNavigatorScreen = () => {
           backgroundColor: activeColors.secondary,
         },
         headerTitleAlign: 'left',
+        animationEnabled: false,
       }}
     >
-        
       <HomeStackNavigator.Screen name={t('common:screenHeader')} component={Home} />
       <HomeStackNavigator.Screen
-        name= {t('common:screenDetails')}
+        name={t('common:screenDetails')}
         component={Details}
         options={{
           headerBackTitleVisible: false,

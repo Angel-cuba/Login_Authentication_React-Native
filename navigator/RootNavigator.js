@@ -60,6 +60,7 @@ const RootNavigator = () => {
           headerStyle: {
             backgroundColor: activeShadow.shadowLight,
           },
+          animationEnabled: false,
         })}
       >
         <TabNavigator.Screen
