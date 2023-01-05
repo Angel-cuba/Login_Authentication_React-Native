@@ -16,11 +16,11 @@ export default function Home() {
 
   const { t } = useTranslation();
   return (
-    <MainContainer style={{backgroundColor: activeColors.white}}>
+    <MainContainer style={{ backgroundColor: activeColors.white }}>
       <StyledText style={styles.sectionTitle} big>
         {t('common:home:trendingBlock')}
       </StyledText>
-      <NewsSection data={newsData} />
+      <NewsSection data={newsData} t={t} />
       <StyledText style={styles.sectionTitle} big>
         {t('common:home:exploreBlock')}
       </StyledText>

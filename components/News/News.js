@@ -2,11 +2,11 @@ import { FlatList } from 'react-native';
 import React from 'react';
 import NewsItem from './NewsItem';
 
-const NewsSection = ({ data }) => {
+const NewsSection = ({ data, t }) => {
   return (
     <FlatList
       data={data}
-      renderItem={({ item }) => <NewsItem {...item} />}
+      renderItem={({ item }) => <NewsItem {...item} t={t} />}
       keyExtractor={({ id }) => id.toString()}
       horizontal={true}
       showsHorizontalScrollIndicator={false}

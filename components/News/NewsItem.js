@@ -6,21 +6,17 @@ import { useNavigation } from '@react-navigation/native';
 // Context
 import { useContext } from 'react';
 import { ThemeContext } from '../../context/ThemeContext';
-// Translation
-import { useTranslation } from 'react-i18next';
 
-const NewsItem = ({ image, title, avatar, author, date, content, ...props }) => {
+const NewsItem = ({ image, title, avatar, author, date, content, t, ...props }) => {
   let shadowsColors = shadows;
   const { themeApp } = useContext(ThemeContext);
   let activeColors = defaultTheme[themeApp.mode];
-
-  const { t } = useTranslation();
 
   const navigation = useNavigation();
   return (
     <TouchableOpacity
       onPress={() => {
-        navigation.navigate( t('common:screenDetails'), {
+        navigation.navigate(t('common:screenDetails'), {
           image,
           title,
           avatar,
