@@ -1,19 +1,37 @@
-import { useEffect, useState } from 'react';
-import { Appearance, AsyncStorageStatic } from 'react-native';
+import { useEffect, useState, Suspense } from 'react';
+import { Appearance, AsyncStorage } from '@react-native-async-storage/async-storage';
 import { getData, storeData } from './config/asyncStorage';
 import { ThemeContext } from './context/ThemeContext';
 import RootNavigator from './navigator/RootNavigator';
 import * as SplashScreen from 'expo-splash-screen';
+// Localization
+import * as Localization from 'expo-localization';
 
 //Importin language config
 import './translations/config';
+import Loader from './Loader';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <AppContent />
+    </Suspense>
+  );
+}
+
+const AppContent = () => {
+  AsyncStorage?.setItem('user-language', 'en');
+  const localValue = AsyncStorage?.getItem('user-language');
+  if (localValue === undefined || localValue === null) {
+    AsyncStorage?.setItem('user-language', Localization.locale.split('-')[0]);
+  }
+
   const [themeApp, setThemeApp] = useState({ mode: 'light' });
-  const systemColorSchema = Appearance.getColorScheme();
+  const systemColorSchema = Appearance?.getColorScheme();
+
   const updateTheme = (newTheme) => {
     let mode;
     if (!newTheme) {
@@ -33,7 +51,7 @@ export default function App() {
 
   // Listen to system color scheme changes
   if (themeApp.system) {
-    Appearance.addChangeListener(({ colorScheme }) => {
+    Appearance?.addChangeListener(({ colorScheme }) => {
       updateTheme({ system: true, mode: colorScheme });
     });
   }
@@ -53,10 +71,7 @@ export default function App() {
   };
   useEffect(() => {
     fetchStoredTheme();
-    AsyncStorageStatic?.setItem('user-language', language);
-
   }, []);
-
 
   return (
     <ThemeContext.Provider
@@ -68,4 +83,4 @@ export default function App() {
       <RootNavigator />
     </ThemeContext.Provider>
   );
-}
+};
