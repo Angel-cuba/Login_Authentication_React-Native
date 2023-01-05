@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useTranslation } from 'react-i18next';
 
 const LANGUAGES = [
-  { code: 'en', label: 'English' },
+  // { code: 'en', label: 'English' },
   { code: 'fi', label: 'Suomea' },
   { code: 'es', label: 'Español' },
 ];
@@ -13,7 +13,10 @@ const Selector = () => {
   const { i18n } = useTranslation();
   const selectedLanguageCode = i18n.language;
 
+  const [defaultLanguage, setDefaultLanguage] = React.useState(i18n.language);
+
   const setLanguage = (code) => {
+    setDefaultLanguage(code);
     return i18n.changeLanguage(code);
   };
 
@@ -25,6 +28,9 @@ const Selector = () => {
       </View>
       {LANGUAGES.map((language) => {
         const selectedLanguage = language.code === selectedLanguageCode;
+        if (selectedLanguage === undefined) {
+          selectedLanguage = defaultLanguage === language.code;          
+        }
 
         return (
           <Pressable
